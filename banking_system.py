@@ -23,12 +23,28 @@ def load_accounts():
     
 #Find account
 def find_account(accounts, name):
-    return None
+    for account in accounts:
+        if account ["name"].lowe() == name.lower:
+            return account
+    return ("No such account found. Back to menu to create account")
 
 #Create account function   
 def create_account(accounts):
-    name = input("Enter the account name: ")
+    name = input("Enter the account name: ") #Ask the user to enter the account name.
+    
+    if name.strip() == "":
+        print("Account name cannot be empty.")
+        return
+        existing_account = find_account(account, name)
 
+        if existing_account:
+            print("Account with this name already exist")
+        else:
+            new_account={
+                "name": name,
+                "balance":0,
+                "transactions": []
+            }
 #Deposit money function   
 def deposit_money(accounts):
     name = input("Ente the account name: ")
